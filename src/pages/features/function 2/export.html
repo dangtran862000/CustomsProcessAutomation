@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';"> -->
+    <meta charset="UTF-8" />
+    <title>Custom Automate Process</title>
+    <link rel="stylesheet" href="../../../index.css"/>
+    <link rel="stylesheet" href="./index.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /> -->
+    <!-- <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
+    <script defer src="../../../render.js"></script>
+    <script defer src="./export.js"></script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-vh-100" style="width: 250px;">
+        <div href="/" 
+        class="brand-title fs-4 mb-3 mb-md-0 text-white text-decoration-none justify-content-center ">
+          4TechTeam
+          <span id="appVersion" class="brand-version">
+          </span>
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+              <a href="../../../index.html" class="nav-link navCustom text-white" aria-current="page">
+                <i class="fas fa-home"></i>
+                Home
+              </a>
+          </li>
+          <li>
+            <a href="../../setting/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+          </li>
+          <li>
+            <a href="../../document/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-book"></i>
+              Document
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <a href="#" id="closeApp" class="nav-link navCustom text-white">
+          <i class="fas fa-sign-out-alt"></i>
+          Exit
+        </a>
+      </nav>
+
+      
+      <main>
+        <section class="mainAlgo"> 
+            <!-- Bắt đầu viết code ở đây  -->
+            
+              <!-- <label style="min-width:150px" class="btn" onclick="selectFolder()">Select Folder</label> -->
+            <div class="d-flex bd-highlight">
+              <div class="p-2 flex-grow-1 bd-highlight"><h3>CREATE CDS PACKAGE - <b>EXPORT PROCESS</b></h3></div>
+              <div class="p-2 bd-highlight"></div>
+              <div class="p-2 bd-highlight"><button type="button" class="btn btn-outline-secondary" onclick="window.location='../function 2/index.html';"><i class="fa fa-chevron-left"></i>&nbsp;BACK TO HOME</button></div>
+            </div>
+            <div id="countTable" style="display: none;">
+              <div class="progress-wrapper">
+                <h4 style="font-family: Graphik; font-weight: bold;">Progress</h4>
+                <div class="myTable font-loda">
+                    <div class="result-list">
+                      <div class="result-row first-row">
+                        <div class="result-item"><p>No</p></div>
+                        <div class="result-item"><p>Description</p></div>
+                        <div class="result-item"><p>Note</p></div>
+                        <div class="result-item"><p>Passed</p></div>
+                        <div class="result-item"><p>Failed</p></div>
+                      </div>
+
+                      <div class="hr"></div> 
+        
+                      <div class="result-row" id="checkFiles">
+                        <div class="result-item"><p>1</p></div>
+                        <div class="result-item"><p>Create CDS export package</p></div>
+                        <div class="result-item item-last">
+                          <div class="status" >
+                            <div class="loading-group" id="loading">
+                              <div class="spinner" style="font-size: 18px" ></div>
+                            </div>
+                            <p class="status-title pending" id="status_process">Processing</p>
+                          </div>
+                        </div>
+                        <div class="result-item" style="color: darkgreen;"><p style="display:inline" id="sucess">0</p>/<p style="display:inline" id="totalCDS">0</p></div>
+                        <div class="result-item" style="color: red;"><p style="display:inline" id="error">0</p>/<p style="display:inline" id="totalCDS1">0</p></div>
+                      </div>
+                    </div>
+                </div>
+                <div id="error-trace">
+                  <div id="note-full-container" class="note-has-grid row" >
+                  </div>
+                  </div>
+
+                  <div class="d-flex flex-row-reverse">
+                    <div class="p-2"><button class="btn btn-primary" id="createNewButton" style="text-align: center; display: none; margin-top: 5%; width: 100%;" type="button" onClick="window.location.reload()">
+                    Create new CDS package
+                    </button> 
+                  </div>
+                  </div>
+
+              </div>
+              <table style="display: none;" class="table_Count table-bordered">
+                <tr>
+                  <th style="width: 15%;">Success</th>
+                  <th style="width: 15%;">Error</th>
+                  <th style="width: 15%;">Total</th>
+                </tr>
+                <tr>
+                  <td style="color: green; width: 10%;" id="sucess">0</td>
+                  <td style="color: red; width: 10%;"id="error">0</td>
+                  <td id="totalCDS" style="width: 10%;">0</td>
+                </tr>
+              </table>
+              <table style="display: none;" class="table-bordered">
+                <tr>
+                  <th style="width: 60%;">Note</th>  
+                </tr>
+                <tr>
+                  <td id="noteError"></td>
+                </tr>
+              </table>
+            </div>
+            <label></label>
+            
+
+            <div class="d-flex flex-column gap-3">
+              <div id="display_input" style="display: block;">
+                <!-- <input class="btn btn-primary" type="file" id="fileInput"><br><br> -->
+                <div class="formSetting">
+                  <div class="two-columns-grid">
+                    <div class="half">
+                      <label class="lbl-1" for="folderPath"><strong>Browse the CDS file that you want to create CDS package</strong></label>
+                      <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                        Please browse the CDS folder and select any CDS file into that folder, which contains all the CDS files.
+                      </p>
+                    </div>
+                    <div class="vr"></div>
+                    <div class="half">
+                        <div class="mb-3">
+                          <label for="formFileMultiple" id="errorCDS" style="color: red; visibility: hidden;" class="form-label"><i>*You are required to browse the CDS folder</i></label>
+                          <div class="flex-container">
+                          <button for="fileInput" style="width: 30%; background-color: rgb(173, 173, 173);" class="btn" onclick="selectFolder()">Select folder</button>
+                          <!-- <input class="form-control" type="file" id="fileInput" multiple> -->
+                          <input type="file" id="fileInput" style="display:none; flex-grow: 4; max-width: 100%;"class="form-control custom-file-label">
+                            <input id="filePath" class="form-control" placeholder="No folder chosen" style="background-color: #fff;" disabled></input>
+                          </input>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <hr class="hrSetting">
+      
+                  <div class="two-columns-grid">
+                    <div class="half">
+                      <label class="lbl-1" for="folderPath"><strong>Browse the shipping document folder</strong></label>
+                      <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                        Please browse the shipping document folder and select any shipping doc file into that folder, which contains all the shipping docs.
+                      </p>
+                    </div>
+                    <div class="vr"></div>
+                    <div class="half">
+                      <div class="mb-3">
+                        <label for="formFileMultiple" id="errorSD" style="color: red; visibility: hidden;" class="form-label"><i>*You are required to browse the shipping docs folder</i></label>
+                        <div class="flex-container">
+                          <button for="folderShippingDocInputPath" style="width: 30%; background-color: rgb(173, 173, 173);" class="btn" onclick="selectFolderShippingDocs()">Select folder</button>
+                          <input type="file" id="folderShippingDocInputPath" style="display:none; flex-grow: 4; max-width: 100%;"class="form-control custom-file-label">
+                            <input id="folderShippingDocInput" class="form-control" placeholder="No folder chosen" style="background-color: #fff;" disabled></input>
+                          </input>
+                        </div>
+                        <!-- <input class="form-control" placeholder="Choose folder" type="file" id="folderShippingDocInput" multiple> -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr class="hrSetting">
+      
+                  <div class="two-columns-grid">
+                    <div class="half">
+                      <label class="lbl-1" for="folderPath"><strong>Browse the waybill folder</strong></label>
+                      <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                        Please browse the shipping document folder and select any shipping doc file into that folder, which contains all the shipping docs.
+                      </p>
+                    </div>
+                    <div class="vr"></div>
+                    <div class="half">
+                      <div class="mb-3">
+                        <label for="formFileMultiple" id="errorWB" style="color: red; visibility: hidden;" class="form-label"><i>*You are required to broswse the Waybill folder</i></label>
+                        <div class="flex-container">
+                          <button for="folderWBInputPath" style="width: 30%; background-color: rgb(173, 173, 173);" class="btn" onclick="selectFolderBill()">Select folder</button>
+                          <input type="file" id="folderWBInputPath" style="display:none; flex-grow: 4; max-width: 100%;"class="form-control custom-file-label">
+                            <input id="folderWBInput" class="form-control" placeholder="No folder chosen" style="background-color: #fff;" disabled></input>
+                          </input>
+                        </div>
+                        <!-- <input class="form-control" placeholder="Choose folder" type="file" id="folderWBInput" multiple> -->
+                      </div>
+                    </div>
+                  </div>
+      
+                  <hr class="hrSetting">
+      
+                  <div class="two-columns-grid">
+                    <div class="half">
+                      <label class="lbl-1" for="folderPath"><strong>Input the name of the person who in charge this CDS package</strong></label>
+                      <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                        Please fill in the blank the person in charge create the CDS package for the signature of CDS checklist.
+                      </p>
+                    </div>
+                    <div class="vr"></div>
+                    <div class="half">
+                      <label for="formFileMultiple" id="errorInput" style="color: red; visibility: hidden;" class="form-label"><i style="color: red">*You are required to input the PIC name</i></label>
+                      <input class="form-control" id="to" placeholder="Personal in charge" required>
+                    </div>
+                  </div>
+                </div><br>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                  <div class="p-2 bd-highlight"> <button class="btn btn-primary" style="width: 100%; " type="submit" role="button" onclick="submit();">Create CDS package</button></div>
+                </div>
+               
+              </div>
+            </div>
+
+        </section>        
+        </div>
+      </main>
+    </div>
+    
+  </body>
+</html>

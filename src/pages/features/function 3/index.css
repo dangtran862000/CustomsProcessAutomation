@@ -1,0 +1,470 @@
+input#fileInput {
+    color: transparent;
+}
+
+main {
+  background-color:#f7f8fa !important;
+}
+
+button.btn {
+  background-color: #eee; /* set the background color */
+  color: #555; /* set the text color */
+}
+.button-row {
+  display: flex;
+  justify-content: flex-start; /* Adjust the alignment as needed */
+  margin-bottom: 10px;
+}
+
+.button-row input {
+  margin-right: 3px; /* Decrease the margin-right value */
+}
+
+.button-container {
+  display: flex;
+  gap: 3px; /* Decrease the gap value */
+}
+
+
+
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+
+.flex-container{
+    display: flex;
+    white-space: nowrap;
+}
+
+#tblcsvdata {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#tblcsvdata th,
+#tblcsvdata td {
+  padding: 8px;
+  text-align: left;
+}
+
+#tblcsvdata th {
+  background-color: #f2f2f2;
+}
+
+#tblcsvdata tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#tblcsvdata tbody tr:hover {
+  background-color: #e5e5e5;
+}
+
+#tblcsvdata td:last-child {
+  white-space: nowrap;
+}
+
+#tblcsvdata button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+#tblcsvdata .editButton {
+  color: #4CAF50;
+}
+
+#tblcsvdata .deleteButton {
+  color: #f44336;
+}
+
+
+.active { 
+  color: #1AAA55 !important;
+}
+.failed {
+  color:#d40000 !important;
+}
+.warning {
+  color: orange !important;
+}
+.pending {
+  color: #6c757d !important;
+}
+
+.mainAlgo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.tableCustom {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+tbody {
+  max-height: 300px;      
+  overflow-y: auto;   
+  overflow-x: hidden; 
+}
+
+.table>:not(caption)>*>* {
+  padding: 0.2rem 0.2rem !important;
+  font-size: 15px;
+  vertical-align: baseline;
+}
+
+table .thead-dark th {
+  color: #fff;
+  background-color: #212529;
+  border-color: #32383e;
+  font-size: 15px;
+}
+
+
+.half {
+  float: left;
+  width: 50%;
+}
+
+.form-check-input {
+  width: 3.5em !important;
+  height: 1.4em !important;
+}
+
+.two-columns-grid {
+  display: flex;
+}
+
+.two-columns-grid > * {
+  padding: .5rem;
+}
+
+.half {
+  flex: 1 0;
+}
+
+.hrSetting {
+  margin: 0;
+}
+
+.vr {
+  border-left: 1px solid #000;
+  opacity: .25;
+}
+
+
+
+.btn-status {
+  display: flex;
+  background-color: white;
+  color: black;
+  /* padding-right: 7px; */
+  transition: all .3 ease;
+  cursor: not-allowed !important;
+  justify-content: space-around;
+  border: 2px solid #6c757d;
+}
+
+.btn-direction {
+  padding: 0; 
+  width: 80px; 
+  display: flex; 
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+.status {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.status-title {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.loading-group {
+  /* width: 40px; */
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner {
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #6c757d; /* #6da9f5; #1F78D1; */
+  border-right: 2px solid transparent;
+  border-radius: 50%;
+  margin: auto;
+  animation: spinner 0.8s linear infinite;
+}
+@keyframes spinner {
+  100% { transform: rotate(360deg) }
+}
+.checkmark {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}  
+
+
+.progress-wrapper {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.myTable {
+  width: 100%;
+  display: flex;
+  max-height: 600px;
+  overflow-y: auto;
+
+  border-radius: 5px;
+  /* border-left: 1px gray #6c757d; */
+  /* border-right: 1px gray #6c757d; */
+  /* border-bottom: 1px gray #6c757d; */
+
+  background-color: white;
+}
+
+.error-trace {
+  background-color: white;
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px;
+}
+
+.hr {
+  border-bottom: 1px solid #000;
+  opacity: .25;
+}
+
+.result-list {
+  width: 100%;
+}
+
+.result-row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.result-item {
+  min-width: 0;
+  flex-basis: 50%;
+  padding: 10px 0;
+  height: 45px;
+}
+
+.result-item p {
+  margin-bottom: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.first-row {
+  color: white;
+  background-color: #37304C;
+}
+
+.result-row > .result-item:first-child {
+  flex: 0 1 13%;
+  padding-left: 15px;
+}
+
+.result-row > .result-item:nth-child(4n) {
+  flex: 0 1 20%;
+}
+
+.result-row > .result-item:last-child {
+  flex: 0 1 25%;
+  text-align: center;
+  padding-right: 15px;
+}
+
+.result-row > .result-item:nth-child(3n) {
+  flex: 0 1 65%;
+}
+
+.error-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+
+.copy-btn, .copied-btn {
+  font-size: 18px;
+  border-radius: 5px;
+  border:none;
+  color:#6c6c6c;
+  transition: all .4s;
+  width: 30px;
+  height: 30px;
+}
+.copy-btn {
+  background-color: #eaeaeb;
+}
+.copied-btn {
+  background-color: #0276FF !important;
+  color: white;
+}
+.copy-btn:hover {
+  transform: scale(1.1);
+  color:#1a1a1a;
+  cursor:pointer;
+}
+.copy-btn:focus, .copied-btn:focus {
+  outline:none;
+}
+
+
+
+/* Author: https://codepen.io/tippingpointdev/pen/QWMvwKx*/
+.clipboard {
+  position: relative;
+  text-decoration: underline dotted;
+  cursor: help;
+}
+.clipboard::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  color: #fff;
+  background: rgba(0,0,0, .7);
+  border-radius: 5px;
+  padding: 5px;
+  width: 105px;
+  font-size: 14px;
+}
+.clipboard::after {
+  position: absolute;
+  content: "";
+}
+.clipboard::before,
+.clipboard::after {
+opacity: 0;
+visibility: hidden;
+transition: opacity .3s ease-in-out;
+}
+.clipboard:hover::before,
+.clipboard:hover::after {
+opacity: 1;
+visibility: visible;
+}
+/*For centering both Text and Arrow*/
+.clipboard--top::before,
+.clipboard--top::after {
+bottom: 100%;
+left: 50%;
+transform: translate(-50%);
+margin-bottom: 15px;
+}
+/* For Arrow display */
+.clipboard--top::after {
+margin-bottom: 8px;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-top: 7px solid rgba(0,0,0, .7);
+}
+
+.btn-2 {
+  width: 100px;
+  height: 34px;
+  align-items: center;
+  appearance: button;
+  background-color: #d40000 ;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1.15;
+  font-size: 15px;
+  text-align: center;
+  text-transform: none;
+  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content:flex-end;
+}
+
+.radio-group input[type="radio"] {
+  display: none; /* hide the default radio button */
+}
+
+.radio-group label {
+  cursor: pointer; /* make the label clickable */
+  padding: 10px 20px; /* add some padding */
+  border-radius: 5px; /* round the corners */
+  background-color: #eee; /* set the background color */
+  color: #555; /* set the text color */
+  transition: all 0.3s ease-in-out; /* add a transition effect */
+  margin-right: 0; /* Update to 0 */
+  text-align: center;
+  white-space: nowrap; /* prevent wrapping to next line */
+  overflow: hidden; /* hide any overflowing text */
+  text-overflow: ellipsis; /* add an ellipsis if the text overflows */
+}
+
+.radio-group label:hover {
+  background-color: #ccc;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  background-color: #dfecfc; /* change the background color when selected */
+  color: #007bff; /* change the text color when selected */
+}
+.radio-container {
+  display: inline-block;
+}
+
+.radio-container{
+  display:flex;
+  align-items:center
+}
+
+.path-display {
+  flex-shrink: 1;
+  margin-left: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+
+
+
+
+
+

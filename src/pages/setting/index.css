@@ -1,0 +1,25 @@
+form label{
+    font-size: 15px;
+    color:#8f9096;
+}
+
+form *{
+    font-weight: bold;
+}
+
+form .form-control,form .form-control:focus{
+    border-color:transparent;
+    border-bottom-color: #bebcc1;
+    box-shadow:none;
+    background: transparent;
+}
+
+form .btn{ 
+    border-radius: 0px;
+    border-color: transparent;
+}
+
+.btn.btn-default{
+    background: #ebebeb;
+    color:#8f9096;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';"> -->
+    <meta charset="UTF-8" />
+    <title>4TechTeam</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="./render.js"></script>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <nav class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-vh-100" style="width: 250px;">
+        <div href="/" 
+        class="brand-title fs-4 mb-3 mb-md-0 text-white text-decoration-none justify-content-center ">
+          4TechTeam
+          <span id="appVersion" class="brand-version">
+          </span>
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+              <a href="#" class="nav-link navCustom active" aria-current="page">
+                <i class="fas fa-home"></i>
+                Home
+              </a>
+          </li>
+          <li>
+            <a href="pages/setting/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+          </li>
+          <li>
+            <a href="pages/document/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-book"></i>
+              Document
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <a href="#" id="closeApp" class="nav-link navCustom text-white">
+          <i class="fas fa-sign-out-alt"></i>
+          Exit
+        </a>
+      </nav>
+  
+      <div id="lockApp" style="display: block;">
+        YOUR APPLICATION HAS LOCKED !!! PLEASE ASK TOOL OWNER FOR HELP !!!
+       
+          <div class="form-group">
+
+              <label for=username>Username</label>
+              <input name="username" type="text" class="form-control" id="userName">
+
+          </div>
+          <div class="form-group">
+
+              <label for=pass>Password</label>
+              <input name="password" type="password" class="form-control" id="pass">
+
+          </div>
+          <div class="btn-group flex-end gap-2">
+          <div id="save">
+            <button class="btn-1"  role="button" onclick="validate();">Login</button>
+          </div>
+        </div>
+     
+      </div>
+      <main style="display: none;">
+        <section class="mainAlgo">
+          <div class="page-content container note-has-grid">
+            <div class="d-flex align-items-center fs-4 mb-3 mb-md-0 text-decoration-none">
+              <p class="fw-bold">Custom Automate Process</p>
+            </div>
+
+            <div class="tab-content bg-transparent">
+                <div id="note-full-container" class="note-has-grid row">
+                    <div class="col-md-4 single-note-item all-category">
+                        <div class="card card-body">
+                            <span class="side-stick"></span>
+                            <a href="pages/features/function 1/index.html" class="feature">
+                              <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">CDS barcode</h5>
+                              <i class="point fa fa-circle ml-1 font-10"></i>
+                            </a>
+                            <p class="note-date font-12 text-muted">Automation 1</p>
+                            <div>
+                                <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                                  Automatically download CDS barcode from Customs Web and combine with CDS excel file downloaded from VNACCS
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 single-note-item all-category note-important">
+                        <div class="card card-body">
+                            <span class="side-stick"></span>
+                            <a href="pages/features/function 2/index.html" class="feature">
+                              <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">CDS Package</h5>
+                              <i class="point fa fa-circle ml-1 font-10"></i>
+                            </a>
+                            <p class="note-date font-12 text-muted">Automation 2</p>
+                            <div>
+                                <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                                  Automatically create the CDS package from odd files (checklist, CDS, shipping document)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 single-note-item all-category note-business">
+                        <div class="card card-body">
+                            <span class="side-stick"></span>
+                            <a href="pages/features/function 3/index.html" class="feature">
+                              <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Send Docs To IW</h5>
+                              <i class="point fa fa-circle ml-1 font-10"></i>
+                            </a>
+                            <p class="note-date font-12 text-muted">Automation 3</p>
+                            <div>
+                                <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                                  Automatically send emails to relevant parties with the attachment of the shipping document that saved in the selected folder.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 single-note-item all-category note-social">
+                      <div class="card card-body">
+                          <span class="side-stick"></span>
+                          <a href="pages/features/function 4/index.html" class="feature">
+                            <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Get ID Number</h5>
+                            <i class="point fa fa-circle ml-1 font-10"></i>
+                          </a>
+                          <p class="note-date font-12 text-muted">Automation 4</p>
+                          <div>
+                              <p class="note-inner-content text-muted note-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                                Automatically collect a series of identification numbers (volume: 500-700 numbers) from the VN Customs website.
+                              </p>
+                          </div>
+                      </div>
+                    </div>
+                    
+                </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+    </div>
+  </body>
+</html>

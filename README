@@ -1,0 +1,10 @@
+Capstone Project - 4TechTeam
+
+Build source
+electron-packager . 4techteam --platform=win32 --arch=x64 --asar
+
+Build Python to executable file
+pyinstaller -F main.py
+
+Build source
+npx electron-packager . 4techteam --platform=win32 --arch=x64 --asar

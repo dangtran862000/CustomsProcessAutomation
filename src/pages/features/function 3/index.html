@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';"> -->
+  <meta charset="UTF-8" />
+    <title>Custom Automate Process</title>
+    <link rel="stylesheet" href="../../../index.css"/>
+    <link rel="stylesheet" href="./index.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /> -->
+    <!-- <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
+    <script defer src="../../../render.js"></script>
+    <script defer src="./index.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <nav class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-vh-100" style="width: 250px;">
+      <div href="/" 
+        class="brand-title fs-4 mb-3 mb-md-0 text-white text-decoration-none justify-content-center ">
+          4TechTeam
+          <span id="appVersion" class="brand-version">
+          </span>
+        </div>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="../../../index.html" class="nav-link navCustom text-white" aria-current="page">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="../../setting/index.html" class="nav-link navCustom text-white">
+            <i class="fas fa-cog"></i>
+            Settings
+          </a>
+        </li>
+        <li>
+          <a href="../../document/index.html" class="nav-link navCustom text-white">
+            <i class="fas fa-book"></i>
+            Document
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <a href="#" id="closeApp" class="nav-link navCustom text-white">
+        <i class="fas fa-sign-out-alt"></i>
+        Exit
+      </a>
+    </nav>
+
+
+    <main>
+      <section class="mainAlgo">
+
+        <!-- Bắt đầu viết code ở đây  -->
+        <div class="align-items-center fs-4 mb-3 mb-md-0 text-decoration-none">
+          <div>
+            <p class="fw-bold">Send Docs</p>
+            <p style="font-size: 14px; margin-top: -18px ">Sendings docs via Outlook Mail</p>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-3" style="margin-top: -30px; margin-bottom: -50px">
+          <div id="display_input" style="display: block;">
+            <p class="fw-bold" style="font-size: 18px">Configuration Path</p>
+            <div class="card card-body">
+              <label for="formFileMultiple" style="font-size: 15px" class="form-label">Select a destination
+                folder for CDSs</label>
+              <p class="text-muted" style="font-size:14px">Specify a full path to a folder, which stores the CDS files</p>
+              <div class="flex-container">
+                <button for="fileInput2" style="min-width:150px" class="btn" onclick="selectFolder('Excel')">Select
+                  Folder CDSs</button>
+                <input type="file" id="fileInput2"
+                  style="display:none; flex-grow: 4; max-width: 100%; text-overflow: ellipsis;"
+                  class="form-control custom-file-label">
+                <input id="filePath2" class="form-control" placeholder="No folder chosen" style="background-color: #fff;"
+                  disabled></input>
+                </input>
+              </div>
+              <br>
+              <label for="formFileMultiple" style="font-size: 15px" class="form-label">Select a destination
+                folder for Docs</label>
+              <p class="text-muted" style="font-size:14px">Specify a full path to a folder, which stores the shipping
+                docs</p>
+              <div class="flex-container">
+                <button for="fileInput" style="min-width:150px" class="btn" onclick="selectFolder('Docs')"> Select Folder Docs</button>
+                <input type="file" id="fileInput"
+                  style="display:none; flex-grow: 4; max-width: 100%; text-overflow: ellipsis;"
+                  class="form-control custom-file-label">
+                <input id="filePath" class="form-control" placeholder="No folder chosen" style="background-color: #fff;"
+                  disabled></input>
+                </input>
+              </div>
+              <br>
+              <button class="btn-1" onclick="handleSend()">Send</button>
+            </div>
+          </div>
+        </div>        
+
+        <p class="fw-bold" style="font-size: 18px">Emails information</p>
+        <div class="card card-body" style="margin-top: -30px;">
+          <!-- <div class="button-row">
+            <input class="btn-1" type="button" id="btnAddEmail" value="Add Email" onclick="addEmail();">
+          </div> -->
+
+          <div class="d-flex justify-content-end">
+            <button id="add-email-btn" class="btn-1">Add Email</button>
+          </div>
+
+          <!-- List CSV file data -->
+          <div id="emailListContainer">
+            <table id="tblcsvdata">
+              <thead>
+                <tr id="tblcsvheader">
+                  <th>S.no</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Review Dialog -->
+          <div id="reviewDialog" style="display: none;">
+            <p>Review email before deletion:</p>
+            <p id="reviewEmail"></p>
+            <button class="btn-1" id="btnReview">Review</button>
+            <div class="button-container">
+              <button class="btn-1" id="btnSave" style="display: none;">Save</button>
+              <button class="btn-2" id="btnCancel" style="display: none;">Cancel</button>
+            </div>
+          </div>
+
+          <br><br>
+
+          <div id="addEmailSection" style="display: none;">
+            <input type="text" id="newEmail" placeholder="Enter new email" style="display: inline-block;">
+            <br>
+            <input class="btn-1" type="button" id="btnReview2" value="Review" style="display: inline-block;">
+            <div class="button-container">
+              <button class="btn-1" id="btnSave2" style="display: none;">Save</button>
+              <button class="btn-2" id="btnCancel2" style="display: none;">Cancel</button>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

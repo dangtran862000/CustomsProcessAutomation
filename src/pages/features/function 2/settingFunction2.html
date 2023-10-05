@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';"> -->
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="../../../index.css"/>
+    <link rel="stylesheet" href="./settingFunction2.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <script defer src="../../../render.js"></script>
+    <script defer src="./settingFunction2.js"></script>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <nav class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-vh-100" style="width: 250px;">
+        <div href="/" class="d-flex align-items-center fs-4 mb-3 mb-md-0 text-white text-decoration-none justify-content-center">
+          4TechTeam
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+              <a href="../../../index.html" class="nav-link navCustom text-white" aria-current="page">
+                <i class="fas fa-home"></i>
+                Dashboard
+              </a>
+          </li>
+          <li>
+            <a href="../../setting/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+          </li>
+          <li>
+            <a href="../../document/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-book"></i>
+              Document
+            </a>
+          </li>
+          <li>
+            <a href="../../report error/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-flag"></i>
+              Report error
+            </a>
+          </li>
+          <li>
+            <a href="../../video demo/index.html" class="nav-link navCustom text-white">
+              <i class="fas fa-video"></i>
+              Video demo sample
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <a href="#" id="closeApp" class="nav-link navCustom text-white">
+          <i class="fas fa-sign-out-alt"></i>
+          Exit
+        </a>
+      </nav>
+
+      
+      <main>
+        <section class="mainAlgo"> 
+            
+            <!-- Bắt đầu viết code ở đây  -->
+            <h3>Function 2 Setting </h3>
+
+            <h5>UPDATE CDS CHECKLIST TEMPLATE FILE</h5>
+            <div class="d-flex flex-column gap-3">
+              <!-- <div id="start">
+                <button class="btn-1" type="submit" role="button" onclick="start();">Start</button>
+              </div> -->
+              <div class="ipt-group">
+                <div id="message">
+                  <h8 id="demo" style="color: red; font: bold; display: none;"></h8>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Browse the checklist template file that you want to change</label>
+                <input class="form-control" type="file" id="fileInput" multiple>
+              </div>
+
+              <div id="start">
+                <button class="btn-1" type="submit" role="button" onclick="submit();">Start</button>
+              </div>
+
+            </div>
+
+        </section>
+      </main>
+    </div>
+
+  </body>
+</html>
